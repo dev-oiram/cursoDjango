@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar Autores{% endblock titulo %}
+
+{% block body %}
+    <h1>Listado de Autores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Nacionalidad</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in nombresAutores %}
+                <tr>
+                    <td>{{ autor.id }}</td>
+                    <td>{{ autor.nombre }}</td>
+                    <td>{{ autor.apellidos }}</td>
+                    <td>{{ autor.nacionalidad }}</td>
+                    <td>
+                        <a class="btn btn-success"  href="{% url 'publicaciones:actualizar_autor' autor.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'publicaciones:eliminar_autor' autor.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock body %}
