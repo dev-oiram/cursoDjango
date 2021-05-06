@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar Publicaciones{% endblock titulo %}
+
+{% block body %}
+    <h1>Listado de Publicaciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Fecha de publicación</th>
+                <th>Autor ID</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for publicacion in nombres_publicaciones %}
+                <tr>
+                    <td>{{ publicacion.id }}</td>
+                    <td>{{ publicacion.titulo }}</td>
+                    <td>{{ publicacion.fecha_publicacion }}</td>
+                    <td>{{ publicacion.autor_id }}</td>
+                    <td>
+                        <a class="btn btn-success"  href="{% url 'publicaciones:actualizar_publicacion' publicacion.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'publicaciones:eliminar_publicacion' publicacion.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock body %}

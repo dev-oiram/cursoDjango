@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Eliminar Publicacion{% endblock titulo %}
+
+
+{% block body %}
+<h2>¿Esta seguro de eliminar la publicacion: {{ publicacion.id }} {{ publicacion.titulo }}?</h2>
+<form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+    <a class="btn btn-success" href="{% url 'publicaciones:listar_publicaciones' %}">Cancelar</a>
+</form>
+{% endblock body %}

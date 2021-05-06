@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Crear Publicacion{% endblock titulo %}
+
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        {% comment %} {{ publicacion_form.as_p }} {% endcomment %}
+        <input class="form-control" type="text" name="titulo" placeholder="titulo">
+        <input class="form-control" type="number" name="autor_id" placeholder="autor">
+
+        <button class="btn btn-success" type="submit">Crear</button>
+    </form>
+
+{% endblock body %}
